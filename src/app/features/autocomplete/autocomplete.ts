@@ -1,4 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 
 export interface City {
   name: string
@@ -31,6 +31,9 @@ export class Autocomplete {
     name: 'Nice',
     region: 'Provence-Alpes-Côte d\'Azur'
   }])
+  citiesFiltered = computed(() => {
+    return this.cities().filter(city => city.name.startsWith(this.valueSelected()))
+  })
   
   selectCity(city: City) {
     this.handleSelectCity.emit(city)

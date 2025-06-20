@@ -2,7 +2,7 @@
     @if (valueSelected().length >= 3) {
         <div class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-lg mt-1 z-10 max-h-60 overflow-y-auto">
             <ul class="py-1">
-                @for (city of cities() ; track $index) {
+                @for (city of citiesFiltered() ; track $index) {
                     <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-800 border-b border-gray-100" (click)="selectCity(city)">
                         <div class="flex items-center">
                             <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
@@ -19,4 +19,5 @@
             </ul>
          </div>
     }
+    
 </div>
