@@ -54,6 +54,7 @@
               </label>
               <input
                 type="date"
+                [(ngModel)]="departureSelected"
                 placeholder="Quand ?"
                 class="text-sm text-gray-500 bg-transparent border-none outline-none w-full mt-0.5"
               />
@@ -92,5 +93,5 @@
       </div>
     </div>
 
-    <h2>On recherche un logement du {{ arrivalSelected() | date:'shortDate' }}</h2>
+    <h2>Votre durée de séjour : {{ arrivalSelected() | stayDuration:departureSelected() }} </h2>
   </main>
