@@ -1,4 +1,4 @@
-import { Component, computed, input, output, signal } from '@angular/core';
+import { Component, computed, input, OnDestroy, OnInit, output, signal } from '@angular/core';
 
 export interface City {
   name: string
@@ -14,6 +14,7 @@ export interface City {
 export class Autocomplete {
   valueSelected = input.required<string>()
   handleSelectCity = output<City>()
+  hasLatestTerm = computed(() => this.valueSelected())
 
   cities = signal<City[]>([{
     name: 'Paris',

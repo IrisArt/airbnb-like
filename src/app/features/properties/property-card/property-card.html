@@ -1,0 +1,26 @@
+<div class="max-w-sm bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+  <!-- Image Section -->
+  <div class="relative h-48 overflow-hidden bg-gray-100">
+    <div class="w-full h-full transition-transform duration-300 hover:scale-105">
+      <ng-content select="[slot=image]"></ng-content>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="p-4">
+    <!-- Header Section -->
+    <div class="mb-3">
+      <ng-content select="[slot=header]"></ng-content>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="mb-4">
+      <ng-content select="[slot=content]"></ng-content>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="flex justify-between items-center">
+      <ng-content select="[slot=footer]"></ng-content>
+    </div>
+  </div>
+</div> 
