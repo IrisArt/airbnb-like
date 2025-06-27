@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { Autocomplete, City } from '../autocomplete/autocomplete';
 import { PropertyListComponent } from '../properties/property-list/property-list';
 import { Property } from '../properties/property.model';
+import { MapComponent } from '../map/map';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, Autocomplete, PropertyListComponent],
+  imports: [FormsModule, Autocomplete, PropertyListComponent, MapComponent],
   templateUrl: './home.html'
 })
 export class HomeComponent {
