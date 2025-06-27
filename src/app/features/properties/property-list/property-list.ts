@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
-import { Property } from '../property.model';
 import { PropertyCard } from '../property-card/property-card';
+import { Property } from '../../../core/properties/properties';
 
 @Component({
   selector: 'app-property-list',
