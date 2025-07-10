@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-0">
     @for (property of properties(); track property.id) {
       <!-- PropertyCard with ng-content slots -->
-      <app-property-card>
+      <app-property-card [property]="property">
         
         <!-- Image slot -->
         <img 

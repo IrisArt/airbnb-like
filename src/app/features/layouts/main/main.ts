@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Navbar } from "../../navbar/navbar";
-import { HomeComponent } from "../../home/home";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-main',
-  imports: [Navbar, HomeComponent],
+  imports: [Navbar, RouterOutlet],
   template: `
     <app-navbar />
-    <app-home />
+    <router-outlet />
   `
 })
 export class Main {
