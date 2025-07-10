@@ -7,13 +7,14 @@
         <!-- Image slot -->
         <img 
           slot="image" 
+          #imageRef
           [src]="property.image" 
           [alt]="property.title"
           class="w-full h-full object-cover"
         />
         
         <!-- Header slot -->
-        <div slot="header">
+        <div slot="header" #slotRef>
           <h3 class="text-lg font-semibold text-gray-800 m-0 leading-tight">{{ property.title }}</h3>
           <div class="text-gray-500 text-sm mt-1">{{ property.location }}</div>
           <div class="flex items-center gap-1 mt-2">
@@ -25,7 +26,7 @@
         </div>
         
         <!-- Content slot -->
-        <div slot="content">
+        <div slot="content" #slotRef>
           <p class="text-gray-600 text-sm leading-relaxed m-0">{{ property.description }}</p>
           
           <!-- Additional property details -->
