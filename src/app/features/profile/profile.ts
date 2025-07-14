@@ -1,21 +1,27 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
+type UpdateProfileForm = {
+  name: FormControl<string>
+  email: FormControl<string>
+}
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.html',
-  imports: [FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   standalone: true
 })
 export class ProfileComponent {
-  /**
-   * The user's full name
-   */
-  name: string = '';
+  propEmail = new FormControl()
+  propName = new FormControl()
+  form = new FormGroup<UpdateProfileForm>({
+    name: this.propName,
+    email: this.propEmail
+  })
 
-  /**
-   * The user's email address
-   */
-  email: string = '';
+  updateProfile() {
+    console.log(this.form.value.name)
+  }
 } 
