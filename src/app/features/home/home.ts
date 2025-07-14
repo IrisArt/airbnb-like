@@ -1,32 +1,29 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Autocomplete, City } from '../autocomplete/autocomplete';
 import { PropertyListComponent } from '../properties/property-list/property-list';
 import { MapComponent } from '../map/map';
+import { SearchComponent } from '../search/search';
 import { PropertiesModel } from '../../core/properties/properties';
 
+/**
+ * Home component that displays the main page with search functionality
+ * 
+ * This component serves as the main landing page, featuring a search form
+ * for property discovery, a list of available properties, and an interactive map.
+ * The search functionality has been extracted to a separate SearchComponent for better
+ * modularity and reusability.
+ * 
+ * @example
+ * ```html
+ * <app-home></app-home>
+ * ```
+ */
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, Autocomplete, PropertyListComponent, MapComponent],
+  imports: [SearchComponent, PropertyListComponent, MapComponent],
   templateUrl: './home.html'
 })
 export class HomeComponent {
   private propertiesModel = inject(PropertiesModel)
 
-  citySelected = signal('');
-  arrivalSelected = signal<Date | null>(null)
-  departureSelected = signal<Date | null>(null)
   properties = this.propertiesModel.properties
-
-  search() {
-    console.log('Searching for:', {
-      city: this.citySelected(),
-      arrival: this.arrivalSelected(),
-      departure: this.departureSelected()
-    });
-  }
-
-  listenCityChange(city: City) {
-    this.citySelected.set(city.name);
-  }
 }
