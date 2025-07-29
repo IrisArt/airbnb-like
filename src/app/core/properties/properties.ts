@@ -50,8 +50,8 @@ export class PropertiesModel {
 
   properties = signal<Property[]>([]);
 
-  fetchProperties(): Observable<Property[]> {
-    return this.http.get<PropertyResponse>('https://apprendre.angular.fr/api/fake/properties').pipe(
+  fetchProperties(location: string | null): Observable<Property[]> {
+    return this.http.get<PropertyResponse>('https://apprendre.angular.fr/api/fake/properties?location=' + location).pipe(
       map((obj) => {
         return obj.properties
       }),
