@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MeModel } from '../../core/properties/me';
 import { domainValidator } from '../../core/validators/domain';
+import { emailExistsValidator } from '../../core/validators/email-exists';
 
 type UpdateProfileForm = {
   name: string
@@ -25,6 +26,8 @@ export class ProfileComponent {
     Validators.email,
     Validators.minLength(3),
     domainValidator('hotmail.com')
+  ], [
+    emailExistsValidator()
   ])
 
   form = this.builder.group<UpdateProfileForm>({
