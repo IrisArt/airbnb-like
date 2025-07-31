@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { MeModel } from '../../core/properties/me';
 
 type UpdateProfileForm = {
-  name: FormControl<string>
-  email: FormControl<string>
+  name: string
+  email: string
 }
 
 @Component({
@@ -14,12 +16,24 @@ type UpdateProfileForm = {
   standalone: true
 })
 export class ProfileComponent {
-  propEmail = new FormControl()
-  propName = new FormControl()
-  form = new FormGroup<UpdateProfileForm>({
-    name: this.propName,
-    email: this.propEmail
+  private builder = inject(FormBuilder)
+  private me = inject(MeModel)
+
+  form = this.builder.group<UpdateProfileForm>({
+    name: '',
+    email: ''
   })
+
+  meData = toSignal(this.me.getMe())
+
+  constructor() {
+    effect(() => {
+      const me = this.meData()
+      if (me) {
+        this.form.patchValue(me)
+      }
+    })
+  }
 
   updateProfile() {
     console.log(this.form.value.name)

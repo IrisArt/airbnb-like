@@ -26,4 +26,8 @@ export class HomeComponent {
   private propertiesModel = inject(PropertiesModel)
 
   properties = this.propertiesModel.properties
+
+  constructor() {
+    this.propertiesModel.fetchProperties().subscribe()
+  }
 }
