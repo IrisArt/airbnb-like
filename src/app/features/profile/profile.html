@@ -13,6 +13,21 @@
       </div>
 
       <form class="p-8 space-y-6" [formGroup]="form" (ngSubmit)="updateProfile()">
+        @if (form.invalid) {
+          @if (propEmail.hasError('required')) {
+            <div>Email obligatoire</div>
+          }
+          @if (propEmail.hasError('email')) {
+            <div>Email invalide</div>
+          }
+          @if (propEmail.hasError('minlength')) {
+            <div>3 caractères min.</div>
+          }
+          @if (propEmail.hasError('domain')) {
+            <div>{{ propEmail.getError('domain') }} est interdit</div>
+          }
+        }
+
         <!-- Name Field -->
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
