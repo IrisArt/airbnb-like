@@ -1,7 +1,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./features/home/home";
 import { Auth } from "./auth/auth";
-import { ProfileComponent } from "./features/profile/profile";
 import { canDeactivateProfile } from "./features/profile/profile.guard";
 
 export const routes: Routes = [
@@ -15,7 +14,7 @@ export const routes: Routes = [
     },
     {
         path: 'profile',
-        component: ProfileComponent,
-        canDeactivate: [canDeactivateProfile]
+        canDeactivate: [canDeactivateProfile],
+        loadComponent: () => import('./features/profile/profile').then(m => m.ProfileComponent)
     }
 ]
