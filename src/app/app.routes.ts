@@ -4,6 +4,7 @@ import { Main } from "./features/layouts/main/main";
 import { Error } from "./features/layouts/error/error";
 import { HomeComponent } from "./features/home/home";
 import { Property } from "./features/property/property";
+import { propertiesResolver } from "./features/properties/property-list/property-list.resolver";
 
 export const routes: Routes = [
     {
@@ -12,7 +13,10 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                component: HomeComponent
+                component: HomeComponent,
+                resolve: {
+                    properties: propertiesResolver
+                }
             },
             {
                 path: 'property/:id',
