@@ -26,6 +26,9 @@
           @if (propEmail.hasError('domain')) {
             <div>{{ propEmail.getError('domain') }} est interdit</div>
           }
+          @if (propEmail.hasError('emailExists')) {
+            <div>L'email existe déjà</div>
+          }
         }
 
         <!-- Name Field -->
