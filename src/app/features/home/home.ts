@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, linkedSignal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Autocomplete, City } from '../autocomplete/autocomplete';
 import { PropertyListComponent } from '../properties/property-list/property-list';
@@ -17,22 +17,15 @@ export class HomeComponent {
   private route = inject(ActivatedRoute)
   private router = inject(Router)
 
-  citySelected = signal('');
   arrivalSelected = signal<Date | null>(null)
   departureSelected = signal<Date | null>(null)
   properties = this.propertiesModel.properties
   queryParamsSig = toSignal(this.route.queryParamMap, {
     initialValue: this.route.snapshot.queryParamMap
   })
+  citySelected = linkedSignal(() => this.queryParamsSig().get('city') ?? '');
 
   constructor() {
-    effect(() => {
-      const qp = this.queryParamsSig()
-      const citySelected = qp.get('city')
-      if (citySelected) {
-        this.citySelected.set(citySelected)
-      }
-    })
     effect(() => {
       this.router.navigate([], {
         queryParams: {

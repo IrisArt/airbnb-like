@@ -1,14 +1,15 @@
-import { Component, effect, inject, input, OnInit } from '@angular/core';
+import { Component, effect, inject, input, model, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-property',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './property.html',
   styleUrl: './property.css'
 })
 export class Property {
-  id = input()
+  id = model()
 
   constructor() {
     effect(() => {
