@@ -1,3 +1,4 @@
+import { DatePickerModule } from 'primeng/datepicker';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Autocomplete, City } from '../autocomplete/autocomplete';
@@ -7,7 +8,7 @@ import { MapComponent } from '../map/map';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, Autocomplete, PropertyListComponent, MapComponent],
+  imports: [FormsModule, Autocomplete, PropertyListComponent, MapComponent, DatePickerModule],
   templateUrl: './home.html'
 })
 export class HomeComponent {
