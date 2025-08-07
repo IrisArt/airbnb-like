@@ -35,9 +35,7 @@ export interface Property {
   bathrooms?: number;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+
 export class PropertiesModel {
   properties = signal<Property[]>([
     {
