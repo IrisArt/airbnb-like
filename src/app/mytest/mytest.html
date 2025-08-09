@@ -1,3 +1,9 @@
 <h1>{{ title() }} </h1>
 
 <button (click)="changeTitle.emit('Nouveau Titre')">Change Title</button>
+
+<ul>
+    @for (prop of data.value().properties ; track prop.id) {
+        <li>{{ prop.title }}</li>
+    }
+</ul>
