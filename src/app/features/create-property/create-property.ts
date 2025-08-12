@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ColorPickerComponent } from './color-picker/color-picker';
 
 @Component({
   selector: 'app-create-property',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ColorPickerComponent],
   template: `
     <div class="min-h-screen bg-gray-50 py-8">
       <div class="max-w-2xl mx-auto">
@@ -39,6 +40,13 @@ import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule, For
                   placeholder="Entrez le titre de la propriété"
                 >
               </div>
+            </div>
+
+            <!-- Color Picker -->
+            <div>
+              <app-color-picker
+                formControlName="propertyColor">
+              </app-color-picker>
             </div>
 
             <!-- Tags Section -->
@@ -111,6 +119,7 @@ export class CreateProperty {
   
   propertyForm = this.builder.group({
     title: '',
+    propertyColor: '',
     tags: this.builder.array([])
   })
 
