@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { HomeComponent } from "./features/home/home";
 import { Auth } from "./auth/auth";
 import { ProfileComponent } from "./features/profile/profile";
+import { CreateProperty } from "./features/create-property/create-property";
 
 export const routes: Routes = [
     {
@@ -15,5 +16,9 @@ export const routes: Routes = [
     {
         path: 'profile',
         component: ProfileComponent
+    },
+    {
+        path: 'create-property',
+        component: CreateProperty
     }
 ]
