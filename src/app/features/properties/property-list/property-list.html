@@ -7,8 +7,12 @@
         <!-- Image slot -->
         <img 
           slot="image" 
-          [src]="property.image" 
+          [ngSrc]="property.image" 
           [alt]="property.title"
+          width="400"
+          height="300"
+          priority
+          style="height:auto;max-width:100%"
           class="w-full h-full object-cover"
         />
         

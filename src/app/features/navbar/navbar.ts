@@ -9,13 +9,5 @@ import { Search } from './search';
   styleUrl: './navbar.css'
 })
 export class Navbar {
-  config = signal<any>({ version: '1.0.0', title: 'Mon App' })
 
-  constructor() {
-    setTimeout(() => {
-      this.config.set({
-        version: '2.0.0'
-      })
-    }, 1000)
-  }
 }
