@@ -20,6 +20,17 @@
 
     <!-- Carte simple -->
     <div class="w-full max-w-4xl mt-8">
+       @defer (on hover) {
         <app-map />
+       }
+       @placeholder {
+         <p>Placeholder test</p>
+       }
+       @loading {
+         <p>Loading</p>
+       }
+       @error {
+         <p>Map impossible à charger</p>
+       }
     </div>
   </main>
