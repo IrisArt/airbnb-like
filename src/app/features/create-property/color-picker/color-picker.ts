@@ -50,10 +50,6 @@ type onChangeFn = (value: string) => void
     .color-option:disabled {
       @apply opacity-50 cursor-not-allowed;
     }
-
-    .color-option.selected {
-      @apply shadow-lg;
-    }
   `]
 })
 export class ColorPickerComponent implements ControlValueAccessor {

@@ -1,5 +1,5 @@
 import { Component, effect, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MeModel } from '../../core/properties/me';
@@ -14,7 +14,7 @@ type UpdateProfileForm = {
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.html',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule],
   standalone: true
 })
 export class ProfileComponent {
